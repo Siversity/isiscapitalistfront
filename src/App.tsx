@@ -1,21 +1,28 @@
+/*** ----- RENDER REACT ----- ***/
 import React, { useState, useEffect } from 'react';
+
 import './App.css';
+import './Product.css'
+
+import { displayTable } from './Product';
 
 import { Services } from "./Services";
 import { World, Product, Pallier } from './world';
 
-console.log("Je démarre initial")
+export default App;
 
 
+// React render
 function App() {
   console.log("changement Leandre")
 
-  let world = GetData();
+  // Obtention des données
+  let {world, services} = GetData();
 
-
-
-  return showHTML(world);
+  // Affichage HTML
+  return displayHTML(world, services);
 }
+
 
 // Obtention données
 function GetData() {
@@ -34,32 +41,34 @@ function GetData() {
     )
   }, [])
 
-  return world;
+  // Retour des données
+  return {world, services};
 }
 
+
+// Fonction test
 function test(world : World) {
   return (<div>{world.lastupdate}</div>);
 }
 
-function showHTML(world : World) {
+
+// Affichage HTML final
+/* Ordre d'affichage : Header / Produits / Foot */
+function displayHTML(world : World, services : Services) {
   // HTML array output
-  let buffer = []
+  let output = []
 
   // HTML test
   let testDisplay = test(world);
+  output.push(testDisplay);
   let testDisplay2 = test(world);
+  output.push(testDisplay2);
 
-  buffer.push(testDisplay);
-  buffer.push(testDisplay2);
-
-  let output = buffer;
+  // HTML container produits
+  let products = displayTable(world, services)
+  output.push(products)
 
   // Affichage client
-  return (<div>{buffer}</div>);
+  return (<div>{output}</div>);
 }
-
-
-
-
-export default App;
 
