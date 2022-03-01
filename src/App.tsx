@@ -8,7 +8,7 @@ console.log("Je démarre initial")
 
 
 function App() {
-  console.log("Je démarre")
+  console.log("changement Leandre")
 
   let world = GetData();
 
