@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from 'react';
 
 import './App.css';
+
+import './Header.css'
 import './Product.css'
 
+import { displayHeader } from './Header';
 import { displayTable } from './Product';
 
 import { Services } from "./Services";
