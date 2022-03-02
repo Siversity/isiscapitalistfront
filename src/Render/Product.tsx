@@ -1,6 +1,6 @@
 /*** ----- PRODUITS ----- ***/
-import { Services } from './Services';
-import { World, Product, Pallier } from './world';
+import { Services } from '../Application/Services';
+import { World, Product, Pallier } from '../Application/world';
 
 
 // Type ProductProps

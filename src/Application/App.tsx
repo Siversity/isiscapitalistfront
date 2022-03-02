@@ -1,16 +1,16 @@
 /*** ----- RENDER REACT ----- ***/
 import React, { useState, useEffect } from 'react';
 
-import './App.css';
+import '../Style/Css/App.css';
 
-import './Header.css'
-import './Product.css'
+import '../Style/Css/Header.css'
+import '../Style/Css/Product.css'
 
-import { displayHeader } from './Header';
-import { displayTable } from './Product';
+import { displayHeader } from '../Render/Header';
+import { displayTable } from '../Render/Product';
 
-import { Services } from "./Services";
-import { World, Product, Pallier } from './world';
+import { Services } from "../Application/Services";
+import { World, Product, Pallier } from '../Application/world';
 
 export default App;
 

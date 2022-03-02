@@ -1,6 +1,6 @@
 /*** ----- CLASSE SERVICES ----- ***/
 import axios, { AxiosError, AxiosPromise } from "axios";
-import { World, Product, Pallier } from './world';
+import { World, Product, Pallier } from '../Application/world';
 
 export { Services };
 
