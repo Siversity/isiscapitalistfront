@@ -1,5 +1,6 @@
 /*** ----- RENDER REACT ----- ***/
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import {calcScore} from '../Render/Product';
 
 import '../Style/Css/App.css';
 
@@ -21,6 +22,15 @@ function App() {
 
   // Obtention des données
   let {world, services} = GetData();
+
+  const savedCallback = useRef(calcScore)
+    useEffect(() => savedCallback.current = calcScore)
+    useEffect(() => {
+        let timer = setInterval(() => savedCallback.current(), 100)
+        return function cleanup() {
+            if (timer) clearInterval(timer)
+        }
+    }, [])
 
   // Affichage HTML
   return displayHTML(world, services);
@@ -75,3 +85,10 @@ function displayHTML(world : World, services : Services) {
   return (<div>{output}</div>);
 }
 
+
+export function onProductionDone(p: Product): void {
+  // calcul de la somme obtenue par la production du produit
+  let gain = 3
+  // ajout de la somme à l’argent possédé
+    console.log(gain)
+  }

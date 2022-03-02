@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("../Images/background3big.jpg");
+  background-position: top;
+  background-size: 100em;
+
+
 }
 
 code {
