@@ -62,11 +62,14 @@ function displayHTML(world : World, services : Services) {
   let output = []
 
   // HTML test
-  let testDisplay = test(world);
+  /*let testDisplay = test(world);
   output.push(testDisplay);
   let testDisplay2 = test(world);
-  output.push(testDisplay2);
+  output.push(testDisplay2);*/
 
+  //HTML header
+  let header = displayHeader(world, services)
+  output.push(header)
   // HTML container produits
   let products = displayTable(world, services)
   output.push(products)
