@@ -1,0 +1,17 @@
+/*** ----- CSS DESIGN PRODUITS ----- ***/
+
+
+/* Icones produits */
+.productsIcons {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  /* Colonnes produits */
+  .productsColumns {
+      border: 0.1em solid black;
+      padding: 0.5em;
+      margin: 0.1em;
+  }
