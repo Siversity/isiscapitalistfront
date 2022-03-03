@@ -37,19 +37,28 @@ export default function ProductComponent({ prod, onProductionDone, services }: P
 
     // Fonction d'activation d'un produit
     function ActivateProduct() {
-        // Nom produit
-        console.log(prod.name);
+        // On vérifie que le produit à fabriquer n'est pas en cours de production
+        // Verification quantité à implémenter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        if (prod.timeleft == 0) {
+            // Nom produit
+            console.log(prod.name);
 
-        // Temps restant
-        prod.timeleft = prod.vitesse
+            // Temps restant
+            prod.timeleft = prod.vitesse
 
-        // Last update
-        prod.lastupdate = Date.now()
+            // Last update
+            prod.lastupdate = Date.now()
 
-        // Progress bar
-        let pourcentage: number = (prod.timeleft * 100) / prod.vitesse
-        prod.progressbar = pourcentage
-        setProgress(100)
+            // Progress bar
+            let pourcentage: number = (prod.timeleft * 100) / prod.vitesse
+            prod.progressbar = pourcentage
+            setProgress(100)
+        }
+        else {
+            console.log('Produit pas fini')
+        }
+
+
     }
 
 
@@ -67,12 +76,14 @@ export default function ProductComponent({ prod, onProductionDone, services }: P
 
             // Calcul du pourcentage de temps passé
             let pourcentage = (prod.timeleft * 100) / prod.vitesse
-            prod.progressbar = Math.round(pourcentage)
+            prod.progressbar = pourcentage
             // setProgress(prod.progressbar) // --> CRASH ???
 
             // On vérifie que le produit a bien fini sa production
             if (prod.timeleft <= 0) {
+                // On ajoute le gain
                 console.log('Le produit : ' + prod.name + ' a rapporté ' + prod.revenu * prod.croissance)
+                onProductionDone(prod)
 
                 // On réinitialise la progression de la production
                 prod.timeleft = 0

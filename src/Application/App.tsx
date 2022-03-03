@@ -17,16 +17,7 @@ export default App;
 
 // React render
 function App() {
-  let { world : world, services : services } = GetData()
-  console.log(world);
-
-  // Affichage HTML
-  return displayHTML(world, services);
-}
-
-
-// Obtention données
-function GetData() {
+  // Hooks
   const [services, setServices] = useState(new Services(""))
   const [world, setWorld] = useState(new World())
   const username = "";
@@ -39,9 +30,10 @@ function GetData() {
     }
     )
   }, [])
+  console.log(world);
 
-  // Retour des données
-  return { world : world, services : services };
+  // Affichage HTML
+  return displayHTML(world, services);
 }
 
 
@@ -64,10 +56,11 @@ function displayHTML(world: World, services: Services) {
 }
 
 
-// A implémenter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-export function onProductionDone(p: Product): void {
+// A implémenter <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+export function onProductionDone(prod: Product): void {
   // calcul de la somme obtenue par la production du produit
-  let gain = 3
+  let gain : number = (prod.revenu * prod.croissance)
   // ajout de la somme à l’argent possédé
   console.log(gain)
+  // addToScore(gain) // Où trouver money.world ??? <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }
