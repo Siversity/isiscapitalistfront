@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 export { ProgressBar };
 
 export type ProgressBarProps = {
-    completed: string | number;
+    completed: number;
     bgColor?: string;
     baseBgColor?: string;
     height?: string;
@@ -182,7 +182,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 };
 
 ProgressBar.propTypes = {
-    completed: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    completed: PropTypes.oneOfType([PropTypes.number])
         .isRequired,
     bgColor: PropTypes.string,
     baseBgColor: PropTypes.string,
@@ -206,7 +206,7 @@ ProgressBar.propTypes = {
 };
 
 ProgressBar.defaultProps = {
-    bgColor: "#6a1b9a",
+    bgColor: "#f44336",
     height: "20px",
     width: "100%",
     borderRadius: "50px",

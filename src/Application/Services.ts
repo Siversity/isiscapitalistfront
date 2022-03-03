@@ -29,7 +29,6 @@ class Services {
 
     // Obtention données du monde sur le serveur
     getWorld(): AxiosPromise<World> {
-        console.log(this.api + '/world')
         return axios({
             method: 'get',
             url: this.api + '/world',
