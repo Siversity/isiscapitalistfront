@@ -4,9 +4,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Style/Css/App.css';
 
 import '../Style/Css/Header.css'
+import '../Style/Css/Foot.css'
 import '../Style/Css/Product.css'
 
 import { displayHeader } from '../Render/Header';
+import { displayFoot } from '../Render/Foot';
+import { displayManager } from '../Render/Manager';
 import ProductComponent, { displayTable } from '../Render/Product';
 
 import { Services } from "../Application/Services";
@@ -50,6 +53,9 @@ function displayHTML(world: World, services: Services) {
   // HTML container produits
   let products = displayTable(world, services)
   output.push(products)
+
+  let footer = displayFoot(world,services)
+  output.push(footer)
 
   // Affichage client
   return (<div>{output}</div>);
